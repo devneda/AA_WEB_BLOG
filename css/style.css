@@ -6,6 +6,9 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header {
@@ -41,11 +44,10 @@ body {
 }
 
 .nav-bar {
-    display: none;
+    display: flex;
     flex-direction: column;
     background-color: #333;
     padding: 10px 0;
-    list-style: none;
     margin: 0;
 }
 
@@ -96,11 +98,53 @@ body {
     display: block;
 }
 
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: white;
+}
+
 .cards {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px 0;
+    flex-grow: 1;
 }
 
 .card {
@@ -138,7 +182,6 @@ body {
 
 @media (min-width: 768px) {
     .nav-bar {
-        display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
@@ -168,6 +211,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
 }
 
 footer p {
